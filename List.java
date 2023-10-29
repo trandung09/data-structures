@@ -76,6 +76,23 @@ public class List<T> {
         }
     }
 
+        public void remove(int pos){
+        if (size == 0 || pos < 0 || pos > size) return;
+        if (pos == 0) pop_front();
+        else{
+            int temp = 0;
+            node<T> p = head;
+            while(p.getNext() != null){
+                if (temp == pos-1){
+                    p.setNext(p.getNext().getNext());
+                    size--; break;
+                }
+                p = p.getNext();
+                temp++;
+            }
+        }
+    }
+    
     public static void main(String[] args) {
         List<Integer> myList = new List<Integer>();
 
