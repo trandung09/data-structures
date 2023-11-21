@@ -1,33 +1,37 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <cmath>
 
 typedef long long ll;
 using namespace std;
 
 // phan hoach Lomuto
 
-void swap(int& x, int &y){
-	int tmp = x;
+template <class T>
+void swap_(T& x, T &y){
+	T tmp = x;
 	x = y;
 	y = tmp;
 }
 
-int partition(int A[], int L, int R){ // phan hoach Lomuto
-	int pivot = A[R];
+template <class T>
+int partition(T A[], int L, int R){ // phan hoach Lomuto
+	T pivot = A[R];
 	int i = L-1;
 	
 	for (int j=L ; j<R ; j++){
 		if (A[j] <= pivot){
 			i++; // tang bien dem i
-			swap(A[j], A[i]);
+			swap_(A[j], A[i]);
 		}
 	}
 	
-	swap(A[i+1], A[R]);
+	swap_(A[i+1], A[R]);
 	
 	return i+1;
 }
 
-void quickSort(int A[], int L, int R){
+template <class T>
+void quickSort(T A[], int L, int R){
 	if (L < R){
 		int par = partition(A, L, R);
 		quickSort(A, L, par-1);
