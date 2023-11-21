@@ -16,7 +16,7 @@ int partition(int A[], int L, int R){ // phan hoach Lomuto
 	int i = L-1;
 	
 	for (int j=L ; j<R ; j++){
-		if (A[j] < pivot){
+		if (A[j] <= pivot){
 			i++; // tang bien dem i
 			swap(A[j], A[i]);
 		}
